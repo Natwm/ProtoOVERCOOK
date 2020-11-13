@@ -89,3 +89,4 @@ fmod_editor.log
 ProjectVersion.txt
 
 Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+OvecookProto/Assembly-CSharp.csproj
