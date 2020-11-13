@@ -22,10 +22,10 @@ public class FoodPopZone : MonoBehaviour
     // does avatar has food in hands ?
     //Droppable droppable = avatar.GetComponentInChildren<Droppable>();
     //if(droppable == null)
-    {
+    
       GameObject resource = GameObject.Instantiate(popResource);
       resource.transform.SetParent(avatar.transform);
       resource.transform.localPosition = Vector3.forward;
-    }
+    
   }
 }
