@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cuttable : MonoBehaviour
 {
     Droppable usedObject;
+    public float cutTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +24,11 @@ public class Cuttable : MonoBehaviour
 
         }
     }
+
+    public void Update()
+    {
+        
+    }
+    
 
 }
