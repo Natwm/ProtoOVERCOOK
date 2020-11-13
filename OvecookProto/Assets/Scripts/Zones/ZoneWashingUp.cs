@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ZoneWashingUp : ZoneController
 {
-    public override void OnDrop(GameObject droppable)
+    public override void OnDrop(Droppable droppable)
     {
         //if(droppable.GetComponent<Washable>())
             base.OnDrop(droppable);
