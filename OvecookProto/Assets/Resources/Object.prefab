@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d073dda7382d1b14eb095c87cc21d5e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLegume: 0
+  currentLegume: 1
   inGameObject: {fileID: 0}
 --- !u!114 &6884489944670737438
 MonoBehaviour:
@@ -58,3 +58,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4147db25335c6104d8fd94fa70e9e7c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cutTime: 0

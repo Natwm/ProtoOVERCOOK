@@ -52,13 +52,34 @@ public class CharacterBehaviours : MonoBehaviour
         m_Controller = GetComponent<CharacterController>();
         groundCheck = transform.GetChild(0);
     }
-
+    GameObject inHand = null;
     // Update is called once per frame
     void Update()
     {
+        PhysicsCheck();
         if (isGrounded)
         {
             PlayerMovement();
+        }
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            if (interactGO != null)
+            {
+               
+                if (inHand == null)
+                {
+                    Droppable droppableInHand = interactGO.GetComponent<ZoneController>().OnPick();
+                    //interactGO.GetComponent<Collider>().enabled = false;
+                    inHand = droppableInHand.gameObject;
+                }
+                else
+                {
+                    Droppable tempDrop = inHand.GetComponent<Droppable>();
+                    interactGO.GetComponent<ZoneController>().OnDrop(tempDrop);
+                    inHand = null;
+                    
+                }
+            }
         }
     }
 
@@ -87,6 +108,16 @@ public class CharacterBehaviours : MonoBehaviour
 
     private void PhysicsCheck()
     {
+        Collider[] listOfInteract = Physics.OverlapSphere(interactTransform.position, castRadius, interactLayer);
+        if (listOfInteract.Length != 0)
+        {
+            
+            interactGO = listOfInteract[0].gameObject;
+        }
+        else
+        {
+            interactGO = null;
+        }
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if (isGrounded && velocity.y < 0)
         {

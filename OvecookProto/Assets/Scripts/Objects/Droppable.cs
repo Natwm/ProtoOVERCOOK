@@ -13,7 +13,7 @@ public class Droppable : MonoBehaviour
     {
         GameObject tempObject = Resources.Load("Droppables/" + currentLegume.ToString()) as GameObject;
         inGameObject = Instantiate(tempObject, transform);
-        tempObject.transform.localPosition = Vector3.zero;
+        inGameObject.transform.localPosition = Vector3.zero;
         name = currentLegume.ToString();
     }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FoodPopZone : MonoBehaviour
+public class FoodPopZone : ZoneController
 {
   public GameObject popResource;
 
@@ -11,21 +11,28 @@ public class FoodPopZone : MonoBehaviour
     
   }
 
-  void OnMouseDown()
-  {
-    OnInteraction();
-  }
+ 
 
-  public void OnInteraction()
-  {
-    GameObject avatar = GameObject.FindGameObjectWithTag("Player");
-    // does avatar has food in hands ?
-    //Droppable droppable = avatar.GetComponentInChildren<Droppable>();
-    //if(droppable == null)
-    
-      GameObject resource = GameObject.Instantiate(popResource);
-      resource.transform.SetParent(avatar.transform);
-      resource.transform.localPosition = Vector3.forward;
-    
-  }
+    public override Droppable OnPick()
+    {
+        
+        if (this._droppable != null)
+        {
+
+            Droppable droppable = _droppable;
+            _droppable = null;
+            return droppable;
+        }
+        GameObject avatar = GameObject.FindGameObjectWithTag("Player");
+        // does avatar has food in hands ?
+        //Droppable droppable = avatar.GetComponentInChildren<Droppable>();
+        //if(droppable == null)
+
+        GameObject resource = GameObject.Instantiate(popResource);
+        resource.transform.SetParent(avatar.transform);
+        resource.transform.localPosition = Vector3.forward;
+        return resource.GetComponent<Droppable>();
+    }
+
+
 }

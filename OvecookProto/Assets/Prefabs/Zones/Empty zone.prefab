@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 2422576415436422796}
   - component: {fileID: 2422576415436422793}
   - component: {fileID: 2422576415436422798}
-  - component: {fileID: 2422576415436422799}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,19 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &2422576415436422799
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2422576415436422797}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2422576415980908786
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +89,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2422576415980908749}
   - component: {fileID: 2422576415980908748}
-  m_Layer: 0
+  - component: {fileID: 46004830}
+  m_Layer: 9
   m_Name: Empty zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,6 +126,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropPosition: {fileID: 2422576416145772609}
+--- !u!65 &46004830
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2422576415980908786}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!1 &2422576415988458828
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2422576415988458831}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2422576416145772609}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DopPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

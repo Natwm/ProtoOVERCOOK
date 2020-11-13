@@ -11,7 +11,9 @@ public class ZoneController : MonoBehaviour
         if(this._droppable == null)
         {
             _droppable = droppable;
+            _droppable.transform.SetParent(transform);
             _droppable.transform.position = dropPosition.position;
+            
         }
     }
 
@@ -20,6 +22,8 @@ public class ZoneController : MonoBehaviour
         if(this._droppable != null)
         {
             Droppable droppable = _droppable;
+            droppable.transform.SetParent(GameObject.FindGameObjectWithTag("Player").transform);
+            droppable.transform.localPosition = Vector3.forward;
             _droppable = null;
             return droppable;
         }
