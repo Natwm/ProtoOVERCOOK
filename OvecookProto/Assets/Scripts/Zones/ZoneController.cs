@@ -5,14 +5,26 @@ using UnityEngine;
 public class ZoneController : MonoBehaviour
 {
     public Transform dropPosition;
-    protected GameObject _droppable;
+    protected Droppable _droppable;
 
-    public virtual void OnDrop(GameObject droppable){
+    public virtual void OnDrop(Droppable droppable){
         if(this._droppable == null)
         {
             _droppable = droppable;
             _droppable.transform.position = dropPosition.position;
         }
+    }
+
+    public virtual Droppable OnPick()
+    {
+        if(this._droppable != null)
+        {
+            Droppable droppable = _droppable;
+            _droppable = null;
+            return droppable;
+        }
+
+        return null;
     }
 
     public virtual void Use() {}

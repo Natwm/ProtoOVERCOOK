@@ -69,15 +69,17 @@ public class CharacterBehaviours : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
 
         Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical).normalized;
+        if(movement.magnitude >= 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg + cam.gameObject.transform.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnShmoothVelocity, turnShmoothTime);
 
-        float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg + cam.gameObject.transform.eulerAngles.y;
-        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnShmoothVelocity, turnShmoothTime);
+            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
 
-        transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
-
-        Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-        m_Controller.Move(moveDirection.normalized * speedMouvement * Time.deltaTime);
-
+            Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            m_Controller.Move(moveDirection.normalized * speedMouvement * Time.deltaTime);
+        }
+        
         velocity.y += gravity * Time.deltaTime;
         m_Controller.Move(velocity * Time.deltaTime);
     }
