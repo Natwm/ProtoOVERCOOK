@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZonePlacheADecouper : ZoneController
+public class ZoneWashingUp : ZoneController
 {
     public override void OnDrop(GameObject droppable)
     {
-        //if(droppable.GetComponnent<Washable>())
+        //if(droppable.GetComponent<Washable>())
             base.OnDrop(droppable);
     }
     
     public override void Use()
     {
-        //_droppable?.GetComponnent<Washable>()?.Wash();
+        //_droppable?.GetComponent<Washable>()?.Wash();
     }
 }
