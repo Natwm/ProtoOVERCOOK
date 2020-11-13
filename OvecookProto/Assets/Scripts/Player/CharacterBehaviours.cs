@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CharacterBehaviours : MonoBehaviour
 {
+
+    public AudioClip PickSound;
+    public AudioClip DropSound;
+    AudioSource sounds;
     [SerializeField] private GameManager m_GameManager;
 
     [Space]
@@ -48,6 +52,7 @@ public class CharacterBehaviours : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sounds = GetComponent<AudioSource>();
         cam = Camera.main;
         m_Controller = GetComponent<CharacterController>();
         groundCheck = transform.GetChild(0);
@@ -69,6 +74,7 @@ public class CharacterBehaviours : MonoBehaviour
                 if (inHand == null)
                 {
                     Droppable droppableInHand = interactGO.GetComponent<ZoneController>().OnPick();
+                    sounds.PlayOneShot(PickSound);
                     //interactGO.GetComponent<Collider>().enabled = false;
                     inHand = droppableInHand.gameObject;
                 }
@@ -76,6 +82,7 @@ public class CharacterBehaviours : MonoBehaviour
                 {
                     Droppable tempDrop = inHand.GetComponent<Droppable>();
                     interactGO.GetComponent<ZoneController>().OnDrop(tempDrop);
+                    sounds.PlayOneShot(DropSound);
                     inHand = null;
                     
                 }
